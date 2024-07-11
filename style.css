@@ -1,0 +1,40 @@
+body{
+    background-color: red;
+}
+
+.this {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    margin-bottom: 1em ;
+    border-radius: 1em;
+}
+section {
+    background-color: red;
+    text-align:center;
+     
+}
+h1 {
+    color: white;
+    text-align:center;
+}
+h2 {
+    color: white;
+}
+.message {
+    color: black;
+}
+button{
+    color: black;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+input {
+    background-color: white;
+    border-radius: 1em;
+}
+
+@media (min-width: 960px){
+
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS with Bootcamp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="greet.js" defer></script>
+    <script src="enoughAirtime.js" defer></script>
+    <script src="totalPhoneBill.js" defer></script>
+    <script src="transportFee.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+
+    <h1>ALPINEJS WIDGETS FOR BOOTCAMP FUNCTIONS</h1>
+
+    <div class="blocks">
+        <section class="block message">
+            <h2>Greet Widget</h2>
+            
+            <div class="block message" x-data="{
+                greetMessage: '',
+                username: '',
+                greetMe() {
+                    this.greetMessage = greet(this.username);
+                }
+            }">
+            <div class="this" x-text="greetMessage">
+                Greeting goes here... 
+                </div>
+                 Greet this name: <input x-model="username" type="text" placeholder="e.g. John Doe">
+                <button x-on:click="greetMe()">Greet!</button>
+            </div>
+        </section>
+
+
+       <hr>
+        <section class="block message">
+            <h2>Total Phone Bill widget</h2>
+            <div class="block">
+                <label for="billList"><b>Calls and SMSes</b></label>
+                <input type="text" id="billList" placeholder="Enter phone string">
+                <button onclick="totalPhoneBill()">Enter</button>
+                <div class="this" id="totalBill"></div>
+            </div>
+        </section>
+    </div>
+
+    <hr>
+
+    <div class="blocks">
+        <section class="block message">
+            <h2>Enough Airtime widget</h2>
+            <div class="block" x-data="{ 
+                projectedUsage: '', 
+                availAirtime: '', 
+                remainingAirtime: '' 
+            }">
+                <label for="projected-usage"><b>Projected Usage:</b></label>
+                <input type="text" id="projected-usage" x-model="projectedUsage" placeholder="e.g call,sms,data">
+                <br>
+                <label for="avail-airtime"><b>Available Airtime:</b></label>
+                <input type="number" id="avail-airtime" x-model="availAirtime" placeholder="5.00">
+                <br>
+                <button x-on:click="remainingAirtime = calculateRemainingAirtime(projectedUsage, availAirtime)">
+                    Calculate
+                </button>
+                <p class="this" x-text="'Remaining Airtime:' + remainingAirtime"></p>
+            </div>
+
+        </section>
+
+        <hr>
+        <section class="block message">
+            <h2>Transport Fee widget</h2>
+            <form>
+                <div class="time">
+                    <label for="morning"><b>Morning:</b></label>
+                    <input type="radio" id="morning" name="time" value="morning"><br><br>
+
+                    <label for="afternoon"><b>Afternoon:</b></label>
+                    <input type="radio" id="afternoon" name="time" value="afternoon"><br><br>
+
+                    <label for="nightshift"><b>Night Shift:</b></label>
+                    <input type="radio" id="nightshift" name="time" value="nightshift"><br><br>
+                </div>
+
+                <div class="button">
+                    <button type="button" onclick="calculateFee()">ENTER</button><br><br>
+                </div>
+
+                <div class="fee">
+                    <label for="totalFee"><b>Total Fee:</b></label>
+                    <input type="text" id="totalFee" name="totalFee" readonly><br><br>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <hr>
+
+</body>
+
+</html>
